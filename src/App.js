@@ -1,5 +1,13 @@
+import "./categories.styles.scss";
+
+import Category from "./components/category/category.component";
+
 const App = () => {
-  return <div>Hello world</div>;
+  return (
+    <div>
+      <Category />
+    </div>
+  );
 };
 
 export default App;
