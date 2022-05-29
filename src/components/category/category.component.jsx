@@ -1,8 +1,7 @@
-import { categories, gender } from "./categories";
-
 import CategoryItem from "../category-item/category-item.component";
 
-const Category = () => {
+const Category = (props) => {
+  const { categories, gender } = props;
   return (
     <div className="categories-wrapper">
       <div className="categories-container">
