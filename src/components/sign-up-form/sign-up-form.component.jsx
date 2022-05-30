@@ -5,6 +5,8 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
 
+import "./sing-up-form.styles.scss";
+
 const defaultFormFields = {
   name: "",
   email: "",
