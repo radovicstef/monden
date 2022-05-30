@@ -1,6 +1,6 @@
 .authentication-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin: 0 5rem;
+  display: flex;
+  width: 50rem;
+  justify-content: space-between;
+  margin: 0 auto;
 }
