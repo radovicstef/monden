@@ -4,7 +4,19 @@ import { Outlet, Link } from "react-router-dom";
 
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
+import { UserContext } from "../../contexts/user.context";
+import { useContext } from "react";
+
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+
 const Header = () => {
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
+
   return (
     <>
       <div className="header-wrapper">
@@ -21,7 +33,11 @@ const Header = () => {
             <Link to="/contact">contact</Link>
           </h3>
           <h3 className="navigation-item">
-            <Link to="/auth">sign in</Link>
+            {currentUser ? (
+              <span onClick={signOutHandler}>sign out</span>
+            ) : (
+              <Link to="/auth">sign in</Link>
+            )}
           </h3>
           <p className="navigation-item">
             <Link to="/shop">
