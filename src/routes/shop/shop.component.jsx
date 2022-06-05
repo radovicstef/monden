@@ -11,8 +11,8 @@ const Shop = () => {
 
   return (
     <div className="product-card-wrapper">
-      {products.map(({ id, ...product }) => {
-        return <ProductCard key={id} product={product} />;
+      {products.map((product) => {
+        return <ProductCard key={product.id} product={product} />;
       })}
     </div>
   );

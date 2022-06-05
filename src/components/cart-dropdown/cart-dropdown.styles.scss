@@ -1,5 +1,6 @@
 .cart-dropdown-container {
   position: absolute;
+  width: 10rem;
   right: 0;
   margin: 1rem 0rem;
   padding: 1rem;
@@ -8,6 +9,12 @@
   background-color: white;
 }
 
+.cart-items {
+  max-height: 10rem;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+}
+
 .cart-go-to-checkout {
-    width: max-content;
+  width: max-content;
 }

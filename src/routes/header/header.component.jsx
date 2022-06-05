@@ -9,6 +9,7 @@ import { useContext, useState } from "react";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
+import { CartContext } from "../../contexts/cart.context";
 
 const Header = () => {
   const { currentUser } = useContext(UserContext);
@@ -17,11 +18,24 @@ const Header = () => {
     await signOutUser();
   };
 
-  const [isCartOpened, setIsCartOpened] = useState(false);
+  const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
 
   const handleCartToggle = () => {
-    setIsCartOpened((prevIsCartOpened) => !prevIsCartOpened);
+    setIsCartOpen((prevIsCartOpened) => !prevIsCartOpened);
   };
+
+  const calculateCartItems = () => {
+    let initialValue = 0;
+    if (!cartItems) {
+      return 0;
+    }
+    return cartItems.reduce(
+      (previousValue, currentItem) => previousValue + currentItem.quantity,
+      initialValue
+    );
+  };
+
+  const numOfCartItems = calculateCartItems();
 
   return (
     <>
@@ -49,8 +63,10 @@ const Header = () => {
             <div className="shop-wrapper" onClick={handleCartToggle}>
               <ShoppingBagIcon />
 
-              <div className="shop-bag-number">0</div>
-              {isCartOpened && <CartDropdown />}
+              {numOfCartItems > 0 && (
+                <div className="shop-bag-number">{numOfCartItems}</div>
+              )}
+              {isCartOpen && <CartDropdown />}
             </div>
           </div>
         </div>
