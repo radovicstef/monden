@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Dahila Boater",
+    "imageURL": "https://cdn.shopify.com/s/files/1/0431/5161/products/dahlia-boater-brown-felt-hats-3_800x.jpg?v=1623280329",
+    "price": 95
+  },
+  {
+    "id": 2,
+    "name": "Wes Fedora",
+    "imageURL": "https://cdn.shopify.com/s/files/1/0431/5161/products/wes-fedora-light-grey-felt-hats-4_800x.jpg?v=1622743628",
+    "price": 89
+  },
+  {
+    "id": 3,
+    "name": "Dahila Triangle",
+    "imageURL": "https://cdn.shopify.com/s/files/1/0431/5161/products/IMG_3207_800x.jpg?v=1631892816",
+    "price": 110
+  },
+  {
+    "id": 4,
+    "name": "Fiona Straw Fedora",
+    "imageURL": "https://cdn.shopify.com/s/files/1/0431/5161/products/fiona-straw-fedora-cream-straw-hats_800x.jpg?v=1623276006",
+    "price": 95
+  },
+  {
+    "id": 5,
+    "name": "Isla Straw Fedora",
+    "imageURL": "https://cdn.shopify.com/s/files/1/0431/5161/products/isla-straw-fedora-brown-straw-hats_800x.jpg?v=1623286616",
+    "price": 95
+  },
+  {
+    "id": 6,
+    "name": "River Guatemalan Palm",
+    "imageURL": "https://cdn.shopify.com/s/files/1/0431/5161/products/river-guatemalan-palm-oak-straw-hats_2000x.jpg?v=1622760540",
+    "price": 196
+  }
+]

@@ -5,15 +5,22 @@ import { Outlet, Link } from "react-router-dom";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 import { UserContext } from "../../contexts/user.context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 
 const Header = () => {
   const { currentUser } = useContext(UserContext);
 
   const signOutHandler = async () => {
     await signOutUser();
+  };
+
+  const [isCartOpened, setIsCartOpened] = useState(false);
+
+  const handleCartToggle = () => {
+    setIsCartOpened((prevIsCartOpened) => !prevIsCartOpened);
   };
 
   return (
@@ -38,11 +45,14 @@ const Header = () => {
               <Link to="/auth">sign in</Link>
             )}
           </h3>
-          <p className="navigation-item">
-            <Link to="/shop">
+          <div className="navigation-item shop-bag">
+            <div className="shop-wrapper" onClick={handleCartToggle}>
               <ShoppingBagIcon />
-            </Link>
-          </p>
+
+              <div className="shop-bag-number">0</div>
+              {isCartOpened && <CartDropdown />}
+            </div>
+          </div>
         </div>
       </div>
       <Outlet />

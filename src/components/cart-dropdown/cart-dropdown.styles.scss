@@ -1,0 +1,13 @@
+.cart-dropdown-container {
+  position: absolute;
+  right: 0;
+  margin: 1rem 0rem;
+  padding: 1rem;
+  z-index: 1;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.cart-go-to-checkout {
+    width: max-content;
+}
