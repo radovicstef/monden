@@ -24,6 +24,8 @@
   align-items: center;
   img {
     width: 50%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
   }
 }
 
