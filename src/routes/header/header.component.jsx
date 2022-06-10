@@ -18,7 +18,8 @@ const Header = () => {
     await signOutUser();
   };
 
-  const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartItems, cartItemsCount } =
+    useContext(CartContext);
 
   const handleCartToggle = () => {
     setIsCartOpen((prevIsCartOpened) => !prevIsCartOpened);
@@ -63,8 +64,8 @@ const Header = () => {
             <div className="shop-wrapper" onClick={handleCartToggle}>
               <ShoppingBagIcon />
 
-              {numOfCartItems > 0 && (
-                <div className="shop-bag-number">{numOfCartItems}</div>
+              {cartItemsCount > 0 && (
+                <div className="shop-bag-number">{cartItemsCount}</div>
               )}
               {isCartOpen && <CartDropdown />}
             </div>
