@@ -1,4 +1,13 @@
-import "./header.styles.scss";
+import {
+  HeaderContainer,
+  HeaderNavigation,
+  HeaderNavigationItem,
+  HeaderNavigationItemShopBag,
+  LinkUnstyled,
+  Logo,
+  ShopBagNumber,
+  ShopBagWrapper,
+} from "./header.styles.jsx";
 
 import { Outlet, Link } from "react-router-dom";
 
@@ -18,8 +27,7 @@ const Header = () => {
     await signOutUser();
   };
 
-  const { isCartOpen, setIsCartOpen, cartItemsCount } =
-    useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartItemsCount } = useContext(CartContext);
 
   const handleCartToggle = () => {
     setIsCartOpen((prevIsCartOpened) => !prevIsCartOpened);
@@ -27,38 +35,38 @@ const Header = () => {
 
   return (
     <>
-      <div className="header-wrapper">
+      <HeaderContainer>
         <div>
-          <Link to="/">
-            <h1 className="header-logo">monden</h1>
-          </Link>
+          <LinkUnstyled to="/">
+            <Logo>monden</Logo>
+          </LinkUnstyled>
         </div>
-        <div className="header-navigation">
-          <h3 className="navigation-item">
-            <Link to="/shop">shop</Link>
-          </h3>
-          <h3 className="navigation-item">
-            <Link to="/contact">contact</Link>
-          </h3>
-          <h3 className="navigation-item">
+        <HeaderNavigation>
+          <HeaderNavigationItem>
+            <LinkUnstyled to="/shop">shop</LinkUnstyled>
+          </HeaderNavigationItem>
+          <HeaderNavigationItem>
+            <LinkUnstyled to="/contact">contact</LinkUnstyled>
+          </HeaderNavigationItem>
+          <HeaderNavigationItem>
             {currentUser ? (
               <span onClick={signOutHandler}>sign out</span>
             ) : (
-              <Link to="/auth">sign in</Link>
+              <LinkUnstyled to="/auth">sign in</LinkUnstyled>
             )}
-          </h3>
-          <div className="navigation-item shop-bag">
-            <div className="shop-bag-wrapper" onClick={handleCartToggle}>
+          </HeaderNavigationItem>
+          <HeaderNavigationItemShopBag>
+            <ShopBagWrapper onClick={handleCartToggle}>
               <ShoppingBagIcon />
 
               {cartItemsCount > 0 && (
-                <div className="shop-bag-number">{cartItemsCount}</div>
+                <ShopBagNumber>{cartItemsCount}</ShopBagNumber>
               )}
               {isCartOpen && <CartDropdown />}
-            </div>
-          </div>
-        </div>
-      </div>
+            </ShopBagWrapper>
+          </HeaderNavigationItemShopBag>
+        </HeaderNavigation>
+      </HeaderContainer>
       <Outlet />
     </>
   );
