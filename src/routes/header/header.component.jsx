@@ -5,7 +5,7 @@ import { Outlet, Link } from "react-router-dom";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 
 import { UserContext } from "../../contexts/user.context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";

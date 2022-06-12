@@ -1,22 +1,28 @@
-import CategoryItem from "../category-item/category-item.component";
+import { useContext } from "react";
+
+import { CategoriesContext } from "../../contexts/categories.context";
+
+import { useParams } from "react-router-dom";
+
+import ProductCard from "../../components/product-card/product-card.component";
 
 import "./category.styles.scss";
 
-const Category = (props) => {
-  const { categories, gender } = props;
+const Category = () => {
+  const { categoriesMap } = useContext(CategoriesContext);
+
+  const { category, gender } = useParams();
+
   return (
-    <div className="categories-wrapper">
-      <div className="categories-container">
-        {categories.map((category) => (
-          <CategoryItem key={category.id} category={category} />
-        ))}
-      </div>
-      <div className="genders-container">
-        {gender.map((gender) => (
-          <CategoryItem key={gender.id} category={gender} />
-        ))}
-      </div>
-    </div>
+    <>
+      {Object.keys(categoriesMap).length > 0 && (
+        <div className="product-card-wrapper">
+          {categoriesMap[category][gender].items.map((product) => (
+            <ProductCard key={product.id} id={product.id} product={product} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
