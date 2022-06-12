@@ -16,7 +16,9 @@ const Category = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    setProducts(categoriesMap[category][gender].items);
+    if (Object.keys(categoriesMap).length > 0) {
+      setProducts(categoriesMap[category][gender].items);
+    }
   }, [category, gender, categoriesMap]);
 
   return (
