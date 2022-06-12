@@ -18,25 +18,12 @@ const Header = () => {
     await signOutUser();
   };
 
-  const { isCartOpen, setIsCartOpen, cartItems, cartItemsCount } =
+  const { isCartOpen, setIsCartOpen, cartItemsCount } =
     useContext(CartContext);
 
   const handleCartToggle = () => {
     setIsCartOpen((prevIsCartOpened) => !prevIsCartOpened);
   };
-
-  const calculateCartItems = () => {
-    let initialValue = 0;
-    if (!cartItems) {
-      return 0;
-    }
-    return cartItems.reduce(
-      (previousValue, currentItem) => previousValue + currentItem.quantity,
-      initialValue
-    );
-  };
-
-  const numOfCartItems = calculateCartItems();
 
   return (
     <>
@@ -61,7 +48,7 @@ const Header = () => {
             )}
           </h3>
           <div className="navigation-item shop-bag">
-            <div className="shop-wrapper" onClick={handleCartToggle}>
+            <div className="shop-bag-wrapper" onClick={handleCartToggle}>
               <ShoppingBagIcon />
 
               {cartItemsCount > 0 && (

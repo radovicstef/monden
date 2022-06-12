@@ -1,0 +1,17 @@
+.category-preview-header {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0rem;
+}
+
+.products-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.category-preview-link:hover
+  > .category-preview-header{
+  opacity: 60%;
+}
