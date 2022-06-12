@@ -21,12 +21,12 @@ const Checkout = () => {
       <div>
         {cartItems.map((item) => {
           const { id } = item;
-          return <CheckoutItem id={id} item={item} />;
+          return <CheckoutItem key={id} id={id} item={item} />;
         })}
         {cartItems.length > 0 && (
           <div className="total-price-wrapper">
-            {headers.slice(0, headers.length - 1).map(() => {
-              return <div></div>;
+            {headers.slice(0, headers.length - 1).map((_, index) => {
+              return <div key={index}></div>;
             })}
             <div className="total-price">Total: {totalPrice}$</div>
           </div>

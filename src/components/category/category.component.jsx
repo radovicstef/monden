@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { CategoriesContext } from "../../contexts/categories.context";
 
@@ -13,11 +13,17 @@ const Category = () => {
 
   const { category, gender } = useParams();
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(categoriesMap[category][gender].items);
+  }, [category, gender, categoriesMap]);
+
   return (
     <>
-      {Object.keys(categoriesMap).length > 0 && (
+      {products.length > 0 && (
         <div className="product-card-wrapper">
-          {categoriesMap[category][gender].items.map((product) => (
+          {products.map((product) => (
             <ProductCard key={product.id} id={product.id} product={product} />
           ))}
         </div>
