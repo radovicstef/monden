@@ -30,7 +30,7 @@ const Header = () => {
   const { isCartOpen, setIsCartOpen, cartItemsCount } = useContext(CartContext);
 
   const handleCartToggle = () => {
-    setIsCartOpen((prevIsCartOpened) => !prevIsCartOpened);
+    setIsCartOpen(!isCartOpen);
   };
 
   return (

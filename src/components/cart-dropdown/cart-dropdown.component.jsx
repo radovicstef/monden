@@ -23,7 +23,7 @@ const CartDropdown = () => {
         {cartItems.length > 0 &&
           cartItems.map((item) => {
             console.log(item.id);
-            return <CartItem key={item.id} cartItem={item} />;
+            return <CartItem key={item.id + item.name} cartItem={item} />;
           })}
       </div>
       <button className="cart-go-to-checkout" onClick={goToCheckoutHandler}>

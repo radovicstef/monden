@@ -9,7 +9,7 @@ import CheckoutItem from "../checkout-item/checkout-item.component";
 const headers = ["Product", "Description", "Quantity", "Price", "Remove"];
 
 const Checkout = () => {
-  const { cartItems, totalPrice } = useContext(CartContext);
+  const { cartItems, cartTotal } = useContext(CartContext);
 
   return (
     <div className="checkout-wrapper">
@@ -20,15 +20,15 @@ const Checkout = () => {
       </div>
       <div>
         {cartItems.map((item) => {
-          const { id } = item;
-          return <CheckoutItem key={id} id={id} item={item} />;
+          const { id, name } = item;
+          return <CheckoutItem key={id + name} id={id} item={item} />;
         })}
         {cartItems.length > 0 && (
           <div className="total-price-wrapper">
             {headers.slice(0, headers.length - 1).map((_, index) => {
               return <div key={index}></div>;
             })}
-            <div className="total-price">Total: {totalPrice}$</div>
+            <div className="total-price">Total: {cartTotal}$</div>
           </div>
         )}
         {cartItems.length === 0 && "No items"}
